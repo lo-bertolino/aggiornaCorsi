@@ -16,7 +16,7 @@ def mail(mittente, destinatario, materia, news,pswd):
 	email.quit()
 
 
-def noaccent (char):
+def noaccent (char): #todo, risolvere il problema della codifica ASCII
 	if char == 'è':
 		return "e'"
 	elif char == 'é':
@@ -33,7 +33,7 @@ def noaccent (char):
 		return char
 
 
-def newsCreation(page, charPosition): #parsing del codice
+def newsCreation(page, charPosition): #parsing della pagina web
 	page = page[charPosition: charPosition + 1000]
 	charPosition = 0
 	news = str()
@@ -67,7 +67,7 @@ def newsCreation(page, charPosition): #parsing del codice
 def control(news, subject, sender, receiver, pswd, scriptPath): #controllo se la news è stata aggiornata
 	NewMessage = False
 	try:
-		salvato = open(scriptPath + subject + "_avviso", "r") #todo implementare scriptPath
+		salvato = open(scriptPath + subject + "_avviso", "r") 
 		msgSalvato = salvato.read()
 		if msgSalvato != news:
 			NewMessage = True
